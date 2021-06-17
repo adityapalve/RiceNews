@@ -1,0 +1,196 @@
+<!-- 
+	
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>RICE - RICE is the definitive guide to enlightening information.</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<!-- 
+		Header contains two containers :
+		1. The first container contains edition selector menu, which contains + EDITION NAME | EDITION NAME = INDIA, CHINA, US 
+		2. The second container contains (a) Hamburger menu, (b) News links and social links. Clicking on Hamburger menu button will open the expanded menu.
+	-->
+	<header class="bg-dark">
+
+		<!-- 
+			.container1 for language/edition menu selector:
+			d-flex flex-row-reverse : Because edition name must be at end of the container.
+			border-bottom border-secondary border-1 : A thin grey-ish border at the bottom of the container 
+			text-light : The container should've a light colored text 
+		-->
+		<div class="d-flex flex-row-reverse text-light border-bottom border-secondary border-1">
+
+			<!-- targets lang-selector-body for toggling collapse on click -->
+			<div 
+				data-bs-toggle="collapse" 
+				data-bs-target="#lang-selector-body" 
+				class="m-1 p-1 hover-grey" 
+				id="lang-selector-text">
+					<span>+</span>
+					<span id="lang-selector-text-info">INDIA</span>
+			</div>
+
+			<!-- targets lang-selector-body for toggling collapse on click -->
+			<div 
+				data-bs-toggle="collapse" 
+				data-bs-target="#lang-selector-body" 
+				class="p-1 m-1 hover-grey collapse" 
+				id="lang-selector-close">
+				CLOSE
+			</div>
+		</div>
+
+		<!-- 
+			container2 containing hamburger menu button, news links and social links.
+			w-100 bg-dark px-1 text-light : The container should've a dark background, light text color, 100% width & some padding aliong the horizontal direction.			
+		-->
+		<div class="w-100 bg-dark d-flex justify-content-between align-items-baseline px-1 text-light">
+
+			<!--navbar navbar-expland-lg navbar-dark : Dark navigation bar with white text color w/ 100% length-->
+			<nav class="d-flex navbar navbar-expland-lg navbar-dark">
+				<div class="container">
+					<!-- hamburger menu which targets menu-body, social-links and navbar-nav for collapse-->
+					<i 
+						data-bs-toggle="collapse" 
+						data-bs-target="#menu-body,#social-links,.navbar-nav" 
+						class="fw-bolder bi bi-list fs-3 hover-grey">
+					</i>
+
+					<!-- cancel icon which is visible when the-->
+					<i class="bi bi-x fw-bolder fs-1 hover-grey collapse"></i>
+
+					<!-- navbar-brand fs-3 fw-bolder p-2 : navbar-brand w/ bigger font-size, bolder text and  addtional padding along all directions-->
+					<a 
+						href="https://ricenews.asxyzp.repl.co/" 
+						class="navbar-brand fs-3 fw-bolder p-2 hover-grey link-light"
+					>RICE</a>
+
+					<!-- 
+						d-lg-flex d-none justify-content-center: The container containing navbar should not be visible when window's width is less than 992px, but it should be flex when greater than it &the content should be centered horizontally.
+					-->
+					<div class="d-lg-flex d-none justify-content-center text-light fs-6 fw-bold">
+
+						<!-- 
+							navbar-nav collapse show : It contains the content of a navigation bar which should collapse when triggered by a button.
+						-->
+						<ul class="navbar-nav collapse show">
+							<!-- 
+								nav-item : Individual items of a navigation bar 
+								nav-link : Navigation links 
+								active   : Link should be selected by default so as to have white-colored text 
+							 -->
+							<li class="nav-item">
+								<a 
+									href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" 
+									class="nav-link active hover-grey" 
+									target="_blank">Watch
+								</a>
+							</li>
+							<li class="nav-item">
+								<a 
+									href="#" 
+									class="nav-link active hover-grey general"
+								>General</a>
+							</li>
+							<li class="nav-item">
+								<a 
+									href="#" 
+									class="nav-link active hover-grey business"
+								>Business</a>
+							</li>
+							<li class="nav-item">
+								<a 
+									href="#" 
+									class="nav-link active hover-grey health"
+								>Health</a>
+							</li>
+							<li class="nav-item">
+								<a 
+									href="#" 
+									class="nav-link active hover-grey science"
+								>Science</a>
+							</li>
+							<li class="nav-item">
+								<a 
+									href="#" 
+									class="nav-link active hover-grey technology"
+								>Technology</a>
+							</li>		
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+			<!-- 
+				d-lg-flex d-none justify-content-between p-3 : social links will have display: flex; when window's width >= 992px, whereas it'll have display: none; when window's width is below 992px. Additionally, the contents in the flexbox should've space in between and have some padding.
+				link-light : link should be white colored
+				bi-twitter, bi-instagram, bi-facebook : bootstrap icons for TWTR, FB & INSTA
+			-->
+			<div id="social-links" class="d-lg-flex d-none justify-content-between p-3 collapse show">
+				<a 
+					href="https://twitter.com/asxyzp" 
+					class="link-light" 
+					target="_blank"> 
+						<i class="bi bi-twitter p-2 hover-grey"></i>
+				</a>
+				<a 
+					href="https://instagram.com/asxyzp" 
+					class="link-light" 
+					target="_blank">
+						<i class="bi bi-instagram p-2 hover-grey"></i>
+				</a>
+				<a 
+					href="https://asxyzp.code.blog" 
+					class="link-light" 
+					target="_blank"> 
+						<i class="bi bi-facebook p-2 hover-grey"></i>
+				</a>
+			</div>
+		</div>
+	</header>
+
+
+	<main>
+		<!-- Dropdown menu for selecting the country for which general news for a country would load -->
+		<section id="lang-selector-body" class="collapse positon-absolute float-md-end col-md-3 bg-dark text-light p-2 vh-100">
+			<h2 class="fw-bolder my-3">RICE <br>EDITIONS</h2>
+			<ul class="list-group list-group-flush ">
+				<li class="list-group-item bg-dark border-top border-light d-flex justify-content-between">
+					<a class="w-100 link-light hover-grey text-decoration-none india-news">INDIA</a>
+					<span class="badge bg-light text-dark rounded-pill">
+						<i class="bi bi-check fs-6"></i>
+					</span>
+				</li>
+				<li class="list-group-item bg-dark border-light d-flex justify-content-between">
+					<a class="w-100 link-light hover-grey text-decoration-none china-news">CHINA</a>
+					<span class="badge bg-light text-dark rounded-pill invisible">
+						<i class="bi bi-check fs-6"></i>
+					</span>
+				</li>
+				<li class="list-group-item bg-dark border-bottom border-light d-flex justify-content-between">
+					<a class="w-100 link-light hover-grey text-decoration-none us-news">UNITED STATES</a>
+					<span class="badge bg-light text-dark rounded-pill invisible">
+						<i class="bi bi-check fs-6"></i>
+					</span>
+				</li>
+			</ul>
+		</section>
+
+		<!-- Menu section which occupies full length and height of the viewport-->
+		<section id="menu-body" class="collapse lead vh-100 bg-dark text-light">
+			Hello, World!
+		</section>
+	</main>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+	<script src="script.js"></script>
+</body>
+</html>

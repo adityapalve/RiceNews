@@ -1,0 +1,32 @@
+
+/* element selectors */
+a{cursor: pointer;}						          /* Default cursor style for all the links */
+body{font-family: fg, sans-serif;}		          /* Default font across the body */
+
+/* ID selector */
+#language-selector-body{						  /*body of the edition/language/nation selector*/
+	position: relative;
+	margin-top: -3em;
+	z-index: 2;
+}
+
+/* class selectors */
+#lang-selector-text,#lang-selector-close{	      /* language selector hover & cancel containers */
+	font-size: 0.6em;	
+	cursor: pointer;
+}
+.hover-grey:hover{color: lightgrey!important;}	/* Hovering over menu items => lightgrey color */
+.bg-dark{background:black!important;}	        /* Overriding the pre-existing black color */
+
+/* @ CSS rules */
+@font-face{									       /* Adding a new font for the web page */
+	font-family: fg;
+	src: url("fg.woff");
+}
+@media(max-width: 768px){
+	/* language selector hover and cancel containers */
+	.lang-selector-text,.lang-selector-close{
+		font-size: 0.8em; 
+		cursor: pointer;
+	}		
+}
