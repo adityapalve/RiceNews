@@ -1,32 +1,70 @@
+/* ID Selectors */
+#lang-selector-body{margin-top: -4em;z-index: 2;}		      /* moving up the language selector */
+#lang-selector-text,#lang-selector-close{	      /* language selector hover & cancel containers */
+	font-size: 0.6em;	
+}
+#menu-body{margin-top: -1em;z-index: 2;}
+
+/* class selectors */
+.hover-grey:hover{								   /* Hovering over menu items => lightgrey color */
+	color: lightgrey!important;
+	cursor: pointer;
+}
+.hover-dark-grey:hover{							   /* Hovering over menu items => lightgrey color */
+	color: rgba(100,100,100)!important;
+	cursor: pointer;
+}	
+.bg-dark{background:black!important;}	        /* Overriding the pre-existing black color */
+.overflow-toggle{overflow: hidden;}				  /* Hiding scrollbar*/
+.collapse{display: none!important;}				  /* Change in display not possible w/o !important*/
+.show{display: block!important;}				  /* Change in display not possible w/o !important*/
+.cursor-pointer{cursor: pointer;}				  /* Cursor will be a pointer*/
+.spinner-container{padding-top: 10em;}			  /*Spacing the container containing the spinner*/
+.input-group{width: 90%;}						  /*Input group for search button*/
+.search-input{border: 0px;}						  /*Styling text input field for search*/
+.search-input:focus{box-shadow: 0px 0px;}		  /*Styling text input field for search on focus*/
+.search-btn:focus{					
+	color: black;
+	background: white;
+	box-shadow: 0px 0px;
+}
+.search-input::placeholder{
+	color: white;
+	content: "Search articles, videos & shows";
+}
+.link-bottom{	
+	font-size: 14px;
+	font-style: monospace;
+}
+
+/* Styling card */
+.top-img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.news-title{letter-spacing: 1.5px;}
 
 /* element selectors */
 a{cursor: pointer;}						          /* Default cursor style for all the links */
 body{font-family: fg, sans-serif;}		          /* Default font across the body */
-
-/* ID selector */
-#language-selector-body{						  /*body of the edition/language/nation selector*/
-	position: relative;
-	margin-top: -3em;
-	z-index: 2;
-}
-
-/* class selectors */
-#lang-selector-text,#lang-selector-close{	      /* language selector hover & cancel containers */
-	font-size: 0.6em;	
-	cursor: pointer;
-}
-.hover-grey:hover{color: lightgrey!important;}	/* Hovering over menu items => lightgrey color */
-.bg-dark{background:black!important;}	        /* Overriding the pre-existing black color */
 
 /* @ CSS rules */
 @font-face{									       /* Adding a new font for the web page */
 	font-family: fg;
 	src: url("fg.woff");
 }
-@media(max-width: 768px){
-	/* language selector hover and cancel containers */
-	.lang-selector-text,.lang-selector-close{
-		font-size: 0.8em; 
-		cursor: pointer;
-	}		
+@media(max-width: 992px){
+	#lang-selector-text,#lang-selector-close{	      /* language selector hover & cancel containers */
+		font-size: 0.8em;	
+	}
+	.input-group{
+		width: 100%;
+	}
+	.link-bottom{
+		font-size: 10px;
+	}
+	.top-img-container{
+		width: 100%;
+	}
 }
