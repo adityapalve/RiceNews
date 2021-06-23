@@ -1,6 +1,7 @@
 const express = require("express");
 const fetch = require('node-fetch');
 const querystring = require('querystring');
+const addLog = require('./addLog');
 const app = express();
 
 const port = process.env['PORT'];
@@ -14,6 +15,7 @@ app.get('/country',(req,res)=>{
 	fetch(`https://newsapi.org/v2/top-headlines?country=${querystring.decode(req._parsedOriginalUrl.query).value}&category=general&sortBy=popularity&sortBy=relevance&apiKey=${apiKey}`)
 	.then(res=>res.json())
 	.then(data=>{
+		addLog("total");
 		//Sending fetched data
 		res.json(data);
 
@@ -33,6 +35,7 @@ app.get('/news',(req,res)=>{
 	fetch(`https://newsapi.org/v2/top-headlines?country=${querystring.decode(req._parsedOriginalUrl.query).country}&category=${querystring.decode(req._parsedOriginalUrl.query).category}&sortBy=popularity&sortBy=relevance&apiKey=${apiKey}`)
 	.then(res=>res.json())
 	.then(data=>{
+		addLog("total");
 		//Sending fetched data
 		res.json(data);
 
@@ -48,6 +51,18 @@ app.get('/news',(req,res)=>{
 	});
 });
 
+
+/*
+	When /ref?platform=_____ path is called, then :
+	1. server redirects the request to path / which serves the static files in public dir.
+	2. platform name is fetched using querystring module
+	3. new log is added using 
+*/
+app.get('/ref',(req,res)=>{
+	res.redirect("/");
+	let op = querystring.decode(req._parsedOriginalUrl.query);
+	addLog(op.platform);
+});
 
 app.listen(port,(err)=>{
 	if (err){

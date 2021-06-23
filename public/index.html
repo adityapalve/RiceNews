@@ -1,10 +1,13 @@
 <!-- 
-	
+	App Name : Rice News
+	Version  : 0.0
+	Description : Rice News is a news aggregator app built using Bootstrap5, Vanilla JS, Express & Node	
+	Developer : @asxyzp (Aashish L. Panigrahi)
  -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>RICE - RICE is the definitive guide to enlightening information.</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -12,6 +15,14 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+	<!-- splash screen -->
+	<div class="splash position-fixed vh-100 vw-100 bg-dark text-light d-flex flex-column justify-content-center align-items-center fade-out">
+		<div class="splash-content">
+			<img src="RiceNews.svg" class="splash-img" alt="Rice News - The slyly parody version of vice news">
+			<div class="h1 lead fs-2">Rice news</div>		
+		</div>
+	</div>
 
 	<!-- 
 		Header contains two containers :
@@ -26,7 +37,7 @@
 			"border-bottom border-secondary border-1" : A thin grey-ish border at the bottom of the container 
 			"text-light" : The container should've a light colored text 
 		-->
-		<div class="d-flex flex-row-reverse text-light border-bottom border-secondary border-1">
+		<div class="d-flex flex-row-reverse text-light border-bottom border-secondary border-1 first-top-bar">
 
 			<!-- targets lang-selector-body for toggling collapse on click -->
 			<div 
@@ -52,7 +63,7 @@
 			container2 containing hamburger menu button, news links and social links.
 			"w-100 bg-dark px-1 text-light" : The container should've a dark background, light text color, 100% width & some padding aliong the horizontal direction.			
 		-->
-		<div class="w-100 bg-dark d-flex justify-content-between align-items-baseline px-1 text-light">
+		<div class="w-100 bg-dark d-flex justify-content-between align-items-baseline px-1 text-light second-top-bar">
 
 			<!--"navbar navbar-expland-lg navbar-dark" : Dark navigation bar with white text color w/ 100% length-->
 			<nav class="d-flex navbar navbar-expland-lg navbar-dark">
@@ -160,7 +171,7 @@
 		<!-- 
 			"float-lg-end col-lg-3 bg-dark text-light p-2 vh-100"  : The container having the edition/language selector body will occupy the space of 3 col. units. and float on the right side of the window when window width <= 992px. It'll also have a light text color, dark background, padding of 2 units and height of the entire width of screen.
 		 -->
-		<section id="lang-selector-body" class="collapse position-relative float-lg-end col-lg-3 bg-dark text-light p-2 vh-100">
+		<section id="lang-selector-body" class="collapse position-absolute float-lg-end col-lg-3 bg-dark text-light p-2 vh-100">
 			
 			<!-- "fw-bolder my-3"  : Bolder text w/ 3 units of margin along the y-direction -->
 			<h2 class="fw-bolder my-3">RICE <br>EDITIONS</h2>
@@ -178,8 +189,14 @@
 						<i class="bi bi-check fs-6 fw-bolder"></i>
 					</span>
 				</li>
-				<li class="list-group-item bg-dark border-light d-flex justify-content-between">
+				<li class="collapse list-group-item bg-dark border-light d-flex justify-content-between">
 					<a class="w-100 link-light hover-grey text-decoration-none china-news">CHINA</a>
+					<span class="badge bg-light text-dark rounded-circle p-1 invisible">
+						<i class="bi bi-check fs-6 fw-bolder"></i>
+					</span>
+				</li>
+				<li class="collapse list-group-item bg-dark border-light d-flex justify-content-between">
+					<a class="w-100 link-light hover-grey text-decoration-none au-news">AUSTRALIA</a>
 					<span class="badge bg-light text-dark rounded-circle p-1 invisible">
 						<i class="bi bi-check fs-6 fw-bolder"></i>
 					</span>
@@ -194,19 +211,23 @@
 		</section>
 
 		<!-- Menu section which occupies full length and height of the viewport-->
-		<section id="menu-body" class="position-fixed w-100 overflow-auto collapse lead vh-100 bg-dark text-light">
+		<!-- collapse position-relative w-100 vh-100 overflow-auto bg-dark text-light : menu-body would be collapsed by default because it will only be visible when the hamburger menu is clicked. It also has a fixed position and full height and width of the window. The text inside the menu-body will have a dark background and white colored text. Additionally, overflow: auto; means that content inside it can be accessed using scrollbar.-->
+		<section id="menu-body" class="collapse position-fixed w-100 vh-100 overflow-auto bg-dark text-light">
 
-			<div class="my-lg-5 my-4 container d-lg-flex justify-content-between ">
+			<!-- container d-lg-flex justify-content-between my-lg-5 my-4 : Container will contain news links as well as search buttons and social links. It'll be a flexbox with large margin along the y direction with width>=992px, but bewlow it, it'll have display:block; and slightly smaller margin.-->
+			<div class="container d-lg-flex justify-content-between my-lg-5 my-4">
 
 				<div class="col-lg-6">
 
 					<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="d-block h1 fs-1 link-light hover-grey text-decoration-none p-1 mb-3">WATCH</a>
 					
+					<!-- Search input field with button -->
 					<div class="input-group mb-3">
 					  <input type="text" class="p-2 text-light form-control bg-secondary search-input" placeholder="Search articles, videos & shows.">
 					  <button class="search-btn btn bg-secondary text-white" type="button"><i class="bi bi-search fw-bolder"></i></button>
 					</div>
 
+					<!-- Social links with buttons -->
 					<div class="social-links d-flex gap-4">
 						<a href="https://asxyzp.code.blog" target="_blank" class="text-decoration-none link-light"><i class="hover-grey bi bi-facebook"> </i></a>
 						<a href="https://instagram.com/asxyzp" target="_blank" class="text-decoration-none link-light"><i class="hover-grey bi bi-instagram"></i></a>
@@ -217,8 +238,10 @@
 
 				</div>
 				
+				<!-- - bg-dark col-lg-6 d-lg-flex : Container containing news links will be available in two rows. When window's width>992px, then the container will be a flexbox and each of these columns will occupy half of the space. -->
 				<div class="bg-dark col-lg-6 d-lg-flex">
 
+					<!-- list-group 1 with news links -->
 					<ul class="list-group list-group-flush w-100 p-1">
 						
 						<li class="list-group-item bg-dark border-light">
@@ -235,6 +258,7 @@
 					
 					</ul>
 
+					<!-- list-group 1 with news links -->
 					<ul class="list-group list-group-flush w-100 p-1 mb-3">
 						
 						<li class="list-group-item bg-dark border-light">
@@ -249,9 +273,16 @@
 				</div>
 			</div>
 
+			<!-- Thinks of this as the footer section of the menu body which contains links and attributions -->
+			<!-- 
+				border-top border-secondary border-1 p-3 : The container will have a small grey border on the top demarcating this section from the rest. It'll also have some padding.
+				lead text-center fs-3 text-light : Centered text with a bigger font-size and white text color
+				link-light p1 : Light colored link with some padding 
+				pt-3 text-center text-light link-bottom : Some padding on top for centered text which is light in color 
+			 -->
 			<div class="border-top border-secondary border-1 p-3">
-				<div class="lead text-center fs-3 ml-5"><span class="h1 fw-bolder">RICE</span>media group</div>
-				<div class="text-center text-light ml-5">
+				<div class="lead text-center fs-3"><span class="h1 fw-bolder">RICE</span>media group</div>
+				<div class="text-center text-light">
 					<a href="#" class="link-bottom p-1 link-light">ABOUT</a>
 					<a href="#" class="link-bottom p-1 link-light">CAREERS</a>
 					<a href="#" class="link-bottom p-1 link-light">PARTNERS</a>
@@ -264,12 +295,54 @@
 		</section>
 	</header>
 
+	<!-- 
+		main portion of the webpage which contains :
+		1. spinners which toggles when the content is loading during fetch
+		2. news-container in which the news is loaded
+		3. the illustration container which contains the illustration when the NewsAPI is rate limited 
+	 -->
 	<main class="d-flex flex-wrap">
-		<div class="spinner-container w-100 d-none justify-content-center align-items-center">
+		
+		<!-- Contains spinners -->
+		<!-- vw-100 vh-100 justify-content-center align-items-center : Container w/ full width and height w/ it's content being centered both horizontally and vertically -->
+		<div class="spinner-container vw-100 vh-100 justify-content-center align-items-center">
 			<div class="spinner-border"></div>
 		</div>
-		<div id="news-container" class="d-flex flex-wrap"></div>		
+		
+		<!-- Contains news articles -->
+		<!-- d-flex flex-wrap : Flex container with flex wrap -->
+		<div id="news-container" class="d-flex flex-wrap"></div>
+		
+		<!-- Contains illustration and the text showing that the NewsAPI is rate limited -->
+		<!-- collapse d-flex flex-column align-items-center justify-content-center vw-100 vh-100 p-5 illustration text-center : Flexbox container whose item is vertically and horizontally centered with the container's size being 100% of the window's width and height and some padding. It's text is also centered.-->
+		<div class="collapse d-flex flex-column align-items-center justify-content-center vw-100 vh-100 p-5 illustration text-center">
+			<img src="illustration.png" class="rate-limit-illustration ">
+			<h3>
+				Whoops! NewsAPI got rate limited.
+				<!-- d-none d-lg-block : display:none; in general & display:block; when width>992px; -->
+				<!-- d-inline d-lg-none : display:inline; in general & display:none; when width>992px; -->
+				<br class="d-none d-lg-block">
+				<span class="d-inline d-lg-none">&nbsp;</span>
+				Check the app tomorrow.
+			</h3>	
+		</div>
+
 	</main>
+
+	<!-- footer section of the main body which is exactly the same as footer section of the menu body -->
+	<footer class="bg-dark text-light">
+		<div class="p-3">
+			<div class="lead text-center fs-3"><span class="h1 fw-bolder">RICE</span>media group</div>
+			<div class="text-center text-light">
+				<a href="#" class="link-bottom p-1 link-light">ABOUT</a>
+				<a href="#" class="link-bottom p-1 link-light">CAREERS</a>
+				<a href="#" class="link-bottom p-1 link-light">PARTNERS</a>
+				<a href="#" class="link-bottom p-1 link-light">PRIVACY POLICY</a>
+				<a href="#" class="link-bottom p-1 link-light">TERMS OF USE</a>
+			</div>
+			<div class="pt-3 text-center text-light link-bottom">&copy; RICE MEDIA GROUP</div>
+		</div>
+	</footer>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 	<script src="script.js"></script>
